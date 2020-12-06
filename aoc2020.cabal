@@ -78,7 +78,6 @@ executable day5a
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , attoparsec
-                     , text
 
 executable day5b
   hs-source-dirs:      src
@@ -86,4 +85,3 @@ executable day5b
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , attoparsec
-                     , text
