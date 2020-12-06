@@ -4,6 +4,7 @@ import Data.Attoparsec.Text ( choice, count, char, parseOnly )
 import Data.Functor ( ($>) )
 import Data.String (fromString)
 import Data.Either (rights)
+import Data.Bits (setBit)
 
 hor = choice [ char 'L' $> False
              , char 'R' $> True
@@ -15,13 +16,6 @@ ver = choice [ char 'F' $> False
 seat = (++) <$> count 7 ver <*> count 3 hor
 
 toValue :: [Bool] -> Int
-toValue vals = go vals 0 512
-  where
-    go :: [Bool] -> Int -> Int -> Int
-    go [] n _ = n
-    go (x:xs) n w =
-      if x
-        then go xs (n+w) (w `div` 2)
-        else go xs n (w `div` 2)
+toValue = fst . foldr (\b (v,i) -> (if b then setBit v i else v, i+1)) (0,0)
 
 main = getContents >>= (print . toValue . maximum . rights . fmap (parseOnly seat . fromString) . lines)
