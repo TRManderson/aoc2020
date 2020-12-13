@@ -114,6 +114,20 @@ executable day7b
                      , attoparsec
                      , fgl
 
+executable day11a
+  hs-source-dirs:      src
+  main-is:             Day11A.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+
+executable day11b
+  hs-source-dirs:      src
+  main-is:             Day11B.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+
 executable day12a
   hs-source-dirs:      src
   main-is:             Day12A.hs
