@@ -141,3 +141,18 @@ executable day12b
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , attoparsec
+
+executable day16a
+  hs-source-dirs:      src
+  main-is:             Day16A.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , attoparsec
+                     , containers
+
+executable day16b
+  hs-source-dirs:      src
+  main-is:             Day16B.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , attoparsec

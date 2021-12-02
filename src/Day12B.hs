@@ -13,6 +13,7 @@ data Rotation = Left | Right
 data Instruction = Turn Rotation Int | Go Direction Int | F Int
 type Coord = (Int, Int)
 data Ship = Ship Coord Coord
+  deriving (Show, Eq)
 
 rotate1 :: Coord -> Coord
 rotate1 (x, y) = (-y, x)
@@ -46,4 +47,4 @@ instr = (go <|> turn <|> f) <*> decimal
 
 dist (Ship _ (x, y)) = (abs x) + (abs y)
 
-main = getContents >>= (print . dist . foldr apply (Ship (0,0) (0,0)). rights . fmap (parseOnly instr . fromString). lines)
+main = getContents >>= (print . dist . foldr apply (Ship (10,1) (0,0)). rights . fmap (parseOnly instr . fromString). lines)
